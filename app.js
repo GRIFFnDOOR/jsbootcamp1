@@ -40,8 +40,8 @@ var db = [
   },
   {
     guid: "ba029c24-2229-4439-a280-452bead4f176",
-    firstName: "Jeff",
-    lastName: "Albertson",
+    firstName: "Daniel",
+    lastName: "Kilberg",
     nickname: "Comic Book Guy",
     company: "The Android's Dungeon & Baseball Card Shop",
     email: "treknerk1012@comcast.net"
@@ -74,6 +74,10 @@ app.get("/", function(req, res) {
 
 app.get("/contacts", function(req, res) {
   res.render("contactlist", {contacts: db});
+});
+
+app.get("/test", function(req, res) {
+  res.send('this is a test');
 });
 
 app.get("/contacts/:guid", function(req, res) {
