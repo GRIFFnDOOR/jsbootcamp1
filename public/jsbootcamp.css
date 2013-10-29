@@ -1,3 +1,26 @@
 body {
-  padding: 1em 1.5em 1em 1.5em;
+	padding: 1em 1.5em 1em 1.5em;
+	background-image: url('simple_dashed.png');
+	color: rgb(150,150,150);
 }
+
+tbody tr:hover {
+	background-color: rgb(40,40,40);
+}
+
+th:hover {
+	color: white;
+}
+
+th.ascending:after, th.ascending:hover:after {
+	content: '\f106';
+	font-family: fontAwesome;
+}
+
+th.descending:after, th:hover:after {
+	content: '\f107';
+	font-family: fontAwesome;
+}
+
+
+
