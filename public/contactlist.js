@@ -35,3 +35,10 @@ function sortCol(col, reversed) {
 	});
 	$('tbody').append(reversed? rows.reverse() : rows);
 }
+
+function multiply(a,b) {
+	return a*b;
+}
+
+module.exports.multiply = multiply;
+module.exports.sortCol = sortCol;
