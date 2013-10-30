@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     copy:  {
       main: {
         files: [
-          {expand:true, src:['bower_components/jquery/jquery.js'], dest:'public/'}
+          {expand:true, cwd:'bower_components/jquery/', src:['jquery.js'], dest:'public/'}
         ]
       }
     }
