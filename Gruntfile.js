@@ -22,6 +22,14 @@ module.exports = function(grunt) {
         html:'views/contactlist.hbs',
         ignorePath:'public/'
       }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec' //reports result even upon success
+        },
+        src: ['test/**/*.js']
+      }
     }
   });
 
@@ -29,7 +37,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-bower-install');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('default', ['jshint', 'bower-install', 'copy']);
+  grunt.registerTask('default', ['jshint', 'bower-install', 'copy', 'mochaTest']);
 
 };

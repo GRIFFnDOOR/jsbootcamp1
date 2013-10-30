@@ -23,6 +23,7 @@
     "grunt-bower-install": "~0.6.1",
     "grunt-contrib-clean": "~0.5.0",
     "phantomjs": "~1.9.2-2",
-    "should": "~2.0.2"
+    "should": "~2.0.2",
+    "grunt-mocha-test": "~0.7.0"
   }
 }
