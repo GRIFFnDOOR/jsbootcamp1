@@ -11,10 +11,10 @@ var path = require("path"),
 // server and sets configuration related to our static file server and
 // the handlebar template engine.
 var app = express()
-            .set("views", path.join(__dirname, "views"))
-            .set("view engine", "hbs")
-            .use(express.static(path.join(__dirname, "public")))
-            .use(express.bodyParser());
+    .set("views", path.join(__dirname, "views"))
+    .set("view engine", "hbs")
+    .use(express.static(path.join(__dirname, "public")))
+    .use(express.bodyParser());
 
 
 // This is our in memory database to use for this bootstraped app. This
@@ -73,14 +73,22 @@ app.get("/", function(req, res) {
 });
 
 app.get("/contacts", function(req, res) {
-  res.render("contactlist", {contacts: db});
+  res.render("contactlist.hbs", {contacts: db});
+});
+
+app.get("/contacts/email/:guid", function(req, res) {
+  var guid = req.param("guid"),
+      record = _.findWhere(db, {guid: guid});
+
+  if (record) res.render("email.hbs", {contact: record});
+  else res.send("Sorry, the guid "+guid+" doesn't exist in the DB.");
 });
 
 app.get("/contacts/:guid", function(req, res) {
   var guid = req.param("guid"),
       record = _.findWhere(db, {guid: guid});
 
-  if (record) res.render("contact", {contact: record});
+  if (record) res.render("contact.hbs", {contact: record});
   else res.send("Sorry, the guid " + guid + " doesn't exist in the DB.");
 });
 
