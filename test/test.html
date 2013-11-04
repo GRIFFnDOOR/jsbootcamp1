@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tests</title>
+    <link href="../node_modules/mocha/mocha.css" rel="stylesheet"/>
+  </head>
+  <body>y
+    <div id="mocha"></div> <!-- Required for browser reporter -->
+    
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/should/should.js"></script>
+    <script src="../node_modules/require/require.js"></script>
+    <script src="../public/contactlist.js"></script>
+
+
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+    </script>
+
+    <script>
+      describe("My Test", function() {
+            it("should be true", function() {
+                (1).should.be.ok;
+            });
+
+            it("should fail", function() {
+                false.should.be.ok;
+            });
+        });
+    </script>
+
+    <script>
+      if (window.mochaPhantomJS) {mochaPhantomJS.run();}
+      else {mocha.run();}
+    </script>
+  </body>
+</html>

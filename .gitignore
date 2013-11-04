@@ -1,3 +1,6 @@
 node_modules/
 bower_components/
-public/jquery.jss
+
+jquery.js
+fabric.js
+bootstrap.js

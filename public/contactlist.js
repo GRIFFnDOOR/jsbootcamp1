@@ -1,12 +1,19 @@
+function changeDir (dir) {
+	var newUrl = window.location.href;
+	if (newUrl[newUrl.length -1] != "/") newUrl += "/";
+	window.location.href = newUrl + dir;
+}
 
 function makeContactRowClickable() {
-	$(".table > tbody > tr").click( function(){
-		var newUrl = window.location.href;
-		if (newUrl.charAt(newUrl.length) != "/") {
-			newUrl = newUrl + "/";
-		}
-		newUrl = newUrl + $(this).data("contact-guid");
-		window.location.href = newUrl;
+	$("tbody > tr").click( function(e){
+		changeDir($(this).data("contact-guid"));
+	});
+}
+
+function makeEmailButtonClickable() {
+	$('button.send-email').click( function(e){
+		changeDir("email/" + $(this).parent().parent().data("contact-guid"));	
+		e.stopPropagation();
 	});
 }
 
@@ -36,9 +43,11 @@ function sortCol(col, reversed) {
 	$('tbody').append(reversed? rows.reverse() : rows);
 }
 
+///////  tests  /////////////
+
 function multiply(a,b) {
 	return a*b;
 }
 
-module.exports.multiply = multiply;
-module.exports.sortCol = sortCol;
+//module.exports.multiply = multiply;
+//module.exports.sortCol = sortCol;
