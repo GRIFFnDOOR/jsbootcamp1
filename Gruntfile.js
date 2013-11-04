@@ -20,7 +20,8 @@ module.exports = function(grunt) {
 
     'bower-install': {
       contactlist: {ignorePath:'bower_components/', html:'views/contactlist.hbs'},
-      contact: {ignorePath:'bower_components/', html:'views/contact.hbs'}
+      contact: {ignorePath:'bower_components/', html:'views/contact.hbs'},
+      email: {ignorePath:'bower_components/', html:'views/email.hbs'}
     },
     
     // mochaTest: {test: {
