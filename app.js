@@ -77,7 +77,7 @@ app.get("/contacts", function(req, res) {
   res.render("contactlist.hbs", {contacts: db});
 });
 
-app.get("/contacts/emai/:guid", function(req, res) {
+app.get("/contacts/email/:guid", function(req, res) {
   var guid = req.param("guid"),
       record = _.findWhere(db, {guid: guid});
 
