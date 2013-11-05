@@ -13,8 +13,9 @@ var path = require("path"),
 var app = express()
     .set("views", path.join(__dirname, "views"))
     .set("view engine", "hbs")
+    .use(require('connect-livereload')({port:35720}))
     .use(express.static(path.join(__dirname, "public")))
-    .use(express.bodyParser());
+    .use(express.bodyParser()); //same as .json(), .multipart(), and urlencoded()
 
 
 // This is our in memory database to use for this bootstraped app. This
@@ -76,7 +77,7 @@ app.get("/contacts", function(req, res) {
   res.render("contactlist.hbs", {contacts: db});
 });
 
-app.get("/contacts/email/:guid", function(req, res) {
+app.get("/contacts/emai/:guid", function(req, res) {
   var guid = req.param("guid"),
       record = _.findWhere(db, {guid: guid});
 
